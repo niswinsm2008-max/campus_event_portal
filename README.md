@@ -3,3 +3,4 @@ Event management and Registration Portal
 
 ⁠ ⁠[@kaushyy](https://github.com/@kaushyy)
  ⁠[@dharshanbt916-hub](https://github.com/@dharshanbt916-hub)
+[@niswinsm2008-max](https://github.com/@niswinsm2008-max)
