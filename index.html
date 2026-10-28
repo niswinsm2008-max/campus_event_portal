@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Event Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-mark">CEP</div>
+      <div>
+        <h1>Campus Event Portal</h1>
+        <p>College events. One place.</p>
+      </div>
+    </div>
+    <nav aria-label="Main navigation">
+      <a href="#events">Events</a>
+      <a href="#my-registrations">My Registrations</a>
+      <a href="#organizer">Organizer</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="welcome panel">
+      <div>
+        <p class="eyebrow">STUDENT EVENT DIRECTORY</p>
+        <h2>Find your next campus event.</h2>
+        <p>Browse events, check available seats, and register online.</p>
+      </div>
+      <div class="date-box">
+        <strong id="today-date">CAMPUS NOTICE</strong>
+        <span>Registration portal</span>
+      </div>
+    </section>
+
+    <section id="events" class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">WHAT'S HAPPENING</p>
+          <h2>Upcoming Events</h2>
+        </div>
+        <label class="search-label" for="event-search">Search events
+          <input id="event-search" type="search" placeholder="Try workshop, music...">
+        </label>
+      </div>
+      <div id="event-list" class="event-list" aria-live="polite"></div>
+      <p class="small-note">Seat availability updates when a registration is completed on this browser.</p>
+    </section>
+
+    <section id="my-registrations" class="panel">
+      <p class="eyebrow">YOUR ACTIVITY</p>
+      <h2>My Registrations</h2>
+      <div id="registration-list">
+        <p class="empty-state">You haven't registered for any events yet.</p>
+      </div>
+    </section>
+
+    <section id="organizer" class="panel">
+      <p class="eyebrow">EVENT ADMINISTRATION</p>
+      <h2>Organizer Desk</h2>
+      <p class="muted">Add an event to the directory. This demo stores data in this browser only.</p>
+      <form id="event-form" class="organizer-form">
+        <label>Event name
+          <input name="title" required maxlength="70" placeholder="e.g. Web Design Workshop">
+        </label>
+        <label>Category
+          <select name="category" required>
+            <option value="Workshop">Workshop</option>
+            <option value="Seminar">Seminar</option>
+            <option value="Competition">Competition</option>
+            <option value="Cultural">Cultural</option>
+            <option value="Technical">Technical</option>
+          </select>
+        </label>
+        <label>Date
+          <input name="date" type="date" required>
+        </label>
+        <label>Time
+          <input name="time" type="time" required>
+        </label>
+        <label>Venue
+          <input name="venue" required maxlength="70" placeholder="e.g. Block 12, Room 204">
+        </label>
+        <label>Seat limit
+          <input name="capacity" type="number" min="1" max="10000" required value="50">
+        </label>
+        <label class="full-width">Description
+          <textarea name="description" rows="3" required maxlength="350" placeholder="What should students know?"></textarea>
+        </label>
+        <label>Eligibility
+          <input name="eligibility" maxlength="100" placeholder="e.g. All students">
+        </label>
+        <button type="submit">Add Event</button>
+      </form>
+      <div id="admin-message" class="notice" role="status"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Campus Event Portal &copy; <span id="year"></span> | Student project demo</p>
+    <p class="footer-small">HTML · CSS · JavaScript</p>
+  </footer>
+
+  <dialog id="registration-dialog">
+    <form id="registration-form" method="dialog">
+      <div class="dialog-heading">
+        <div>
+          <p class="eyebrow">EVENT REGISTRATION</p>
+          <h2 id="dialog-event-title">Register for event</h2>
+        </div>
+        <button type="button" id="close-dialog" class="plain-button" aria-label="Close">Close</button>
+      </div>
+      <p id="dialog-event-info" class="muted"></p>
+      <input type="hidden" name="eventId">
+      <label>Full name
+        <input name="studentName" required maxlength="80" autocomplete="name" placeholder="Your full name">
+      </label>
+      <label>College email
+        <input name="email" type="email" required maxlength="120" autocomplete="email" placeholder="you@college.edu">
+      </label>
+      <label>Student ID
+        <input name="studentId" required maxlength="40" placeholder="Your student ID">
+      </label>
+      <p class="small-note">A confirmation slip will be generated after registration.</p>
+      <button type="submit">Confirm Registration</button>
+    </form>
+  </dialog>
+
+  <dialog id="confirmation-dialog">
+    <div id="confirmation-content"></div>
+    <div class="confirmation-actions">
+      <button type="button" id="print-confirmation">Print / Save as PDF</button>
+      <button type="button" id="close-confirmation" class="secondary-button">Close</button>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
